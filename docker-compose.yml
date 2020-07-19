@@ -1,0 +1,11 @@
+version: "3"
+services:
+    ava_node:
+        build: .
+        image: poanetwork/ava-node
+        volumes:
+            - ~/.gecko/db:/db
+            - ./nginx.template:/etc/nginx/conf.d/nginx.template
+        ports: 
+            - ${NGINX_PORT}:${NGINX_PORT}
+        env_file: .env
